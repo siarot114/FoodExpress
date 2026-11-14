@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - FoodExpress</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+html{
+    scroll-behavior:smooth;
+}
+
+/* Dark red gradient background */
+body{
+    min-height:100vh;
+    background: linear-gradient(135deg,#b31217,#e52d27);
+    display:flex;
+    flex-direction:column;
+}
+
+/* Header */
+header{
+    background:#b31217;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+/* Logo lighting effect */
+header img{
+    height:80px;
+    width:80px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Text shadows for header title and subtitle */
+header h1{
+    text-shadow:2px 2px 8px rgba(0,0,0,0.6);
+}
+header p{
+    text-shadow:2px 2px 6px rgba(0,0,0,0.6);
+}
+
+/* Navigation - keep black */
+nav{
+    background:#333;
+    padding:10px;
+    text-align:center;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+    padding:10px 15px;
+    border-radius:5px;
+    transition:0.3s;
+}
+nav a:hover{
+    background:#ff1a1a;
+}
+
+/* Main wrapper to center content */
+main{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+/* Contact Container */
+.contact-container{
+    max-width:750px;
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.contact-container h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#b31217;
+    border-bottom:3px solid #b31217;
+    display:inline-block;
+    padding-bottom:5px;
+}
+
+/* Contact Info */
+.contact-info{
+    margin-bottom:25px;
+    line-height:1.8;
+    text-align:center;
+}
+
+/* Form */
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    margin-top:10px;
+    font-weight:bold;
+}
+
+input, textarea{
+    padding:10px;
+    margin-top:5px;
+    border-radius:5px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+textarea{
+    resize:none;
+    height:120px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px;
+    background: linear-gradient(45deg,#ff4d4d,#ff1a1a);
+    color:white;
+    border:none;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* Footer */
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+
+@media(max-width:768px){
+    .contact-container{
+        margin:20px;
+    }
+    main{
+        min-height:auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="logo.webp" alt="FoodExpress Logo">
+<h1>FoodExpress</h1>
+<p>Delicious Food Delivered To Your Doorstep</p>
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+<a href="logout.html">Log Out</a>
+</nav>
+
+<main>
+<div class="contact-container">
+
+<h2>Contact Us</h2>
+
+<div class="contact-info">
+<p>If you have questions about your order, delivery, or menu, feel free to contact us.</p>
+
+<p><b>Email:</b> linussiarot@gmail.com</p>
+<p><b>Phone:</b> +63 912 345 6789</p>
+<p><b>Location:</b> Cebu City, Philippines</p>
+<p><b>Open Hours:</b> 9:00 AM – 10:00 PM (Monday – Sunday)</p>
+</div>
+
+<form action="send.html" method="get">
+<label>Name</label>
+<input type="text" name="name" required>
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+<label>Message</label>
+<textarea name="message" required></textarea>
+
+<button type="submit">Send Message</button>
+</form>
+
+</div>
+</main>
+
+<footer>
+<p>&copy; 2026 FoodExpress | All Rights Reserved</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="supabase-config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

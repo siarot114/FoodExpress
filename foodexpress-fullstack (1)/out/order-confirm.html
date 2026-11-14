@@ -1,0 +1,128 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmed - FoodExpress</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#b31217;
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+.status{
+    background:#fff3cd;
+    color:#856404;
+    padding:5px 10px;
+    border-radius:12px;
+    font-size:13px;
+}
+.confirm-box{
+    background:white;
+    width:500px;
+    padding:30px;
+    border-radius:15px;
+}
+
+h1{
+    color:#ff4d4d;
+    margin-bottom:10px;
+}
+
+.info{
+    font-size:16px;
+    margin:5px 0;
+}
+
+/* RECEIPT TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th, td{
+    padding:10px;
+    border:1px solid #ddd;
+}
+
+th{
+    background:#ff4d4d;
+    color:white;
+}
+
+/* ONLY COLOR GRAND TOTAL LABEL */
+.total-row{
+    font-weight:bold;
+}
+
+.total-row td:first-child{
+    background:#ff4d4d;
+    color:white;
+}
+
+/* BUTTON */
+a{
+    display:inline-block;
+    padding:12px 25px;
+    margin-top:20px;
+    background:#ff4d4d;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+a:hover{
+    background:#e60000;
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .confirm-box{
+        width:90%;
+        padding:20px;
+    }
+}
+.msg{color:#b31217;font-size:13px;min-height:18px;margin-top:6px}.msg.ok{color:#1a7f37}.status.cancelled{background:#f8d7da;color:#842029}.status.preparing{background:#fff3cd;color:#856404}
+#cancel{background:#555;margin-left:10px}
+[hidden]{display:none!important}
+</style>
+
+</head>
+<body data-page="confirm" data-requires-login>
+<div class="confirm-box">
+<h1>Thank You for Your Order!</h1>
+<p class="msg" id="msg" role="status" aria-live="polite">Loading your order…</p>
+<div id="info" hidden>
+<p class="info"><strong>Status:</strong> <span id="o-status"></span></p>
+<p class="info"><strong>Name:</strong> <span id="o-name"></span></p>
+<p class="info"><strong>Delivery Address:</strong> <span id="o-address"></span></p>
+<p class="info"><strong>Payment Method:</strong> <span id="o-payment"></span></p>
+<p class="info"><strong>Order Date:</strong> <span id="o-date"></span></p>
+<p class="info" id="o-eta"><strong>Estimated Delivery Time:</strong> 30–45 minutes</p>
+</div>
+<div id="receipt" hidden>
+<h2>Receipt</h2>
+<table>
+<thead><tr><th>Item</th><th>Qty</th><th>Price (₱)</th><th>Total (₱)</th></tr></thead>
+<tbody id="rows"></tbody>
+<tfoot><tr class="total-row"><td colspan="3">Grand Total</td><td id="o-total"></td></tr></tfoot>
+</table>
+</div>
+<a href="index.html">Back to Home</a>
+<a href="my-orders.html" style="margin-left:10px">My Orders</a>
+<a href="cancel.html" id="cancel" hidden>Cancel Order</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="supabase-config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
