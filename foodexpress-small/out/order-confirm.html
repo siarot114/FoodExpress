@@ -1,0 +1,152 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Order Confirmed - FoodExpress</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#b31217;
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+.status{
+    background:#fff3cd;
+    color:#856404;
+    padding:5px 10px;
+    border-radius:12px;
+    font-size:13px;
+}
+.confirm-box{
+    background:white;
+    width:500px;
+    padding:30px;
+    border-radius:15px;
+}
+
+h1{
+    color:#ff4d4d;
+    margin-bottom:10px;
+}
+
+.info{
+    font-size:16px;
+    margin:5px 0;
+}
+
+/* RECEIPT TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th, td{
+    padding:10px;
+    border:1px solid #ddd;
+}
+
+th{
+    background:#ff4d4d;
+    color:white;
+}
+
+/* ONLY COLOR GRAND TOTAL LABEL */
+.total-row{
+    font-weight:bold;
+}
+
+.total-row td:first-child{
+    background:#ff4d4d;
+    color:white;
+}
+
+/* BUTTON */
+a{
+    display:inline-block;
+    padding:12px 25px;
+    margin-top:20px;
+    background:#ff4d4d;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+a:hover{
+    background:#e60000;
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .confirm-box{
+        width:90%;
+        padding:20px;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="confirm-box">
+<h1>Thank You for Your Order!</h1>
+
+<!-- ORDER DETAILS -->
+<p class="info"><strong>Status:</strong> <span class="status">Preparing </span></p>
+<p class="info"><strong>Name:</strong> Siarot Linus</p>
+<p class="info"><strong>Delivery Address:</strong> Cebu City, Philippines</p>
+<p class="info"><strong>Payment Method:</strong> Cash on Delivery</p>
+<p class="info"><strong>Order Date:</strong> March 24, 2026</p>
+<p class="info"><strong>Estimated Delivery Time:</strong> 30–45 minutes</p>
+
+<!-- RECEIPT -->
+<h2>Receipt</h2>
+
+<table>
+<tr>
+<th>Item</th>
+<th>Qty</th>
+<th>Price (₱)</th>
+<th>Total (₱)</th>
+</tr>
+
+<tr>
+<td>Cheese Burger</td>
+<td>2</td>
+<td>120</td>
+<td>240</td>
+</tr>
+
+<tr>
+<td>Pepperoni Pizza</td>
+<td>1</td>
+<td>200</td>
+<td>200</td>
+</tr>
+
+<tr>
+<td>Iced Coffee</td>
+<td>1</td>
+<td>100</td>
+<td>100</td>
+</tr>
+
+<tr class="total-row">
+<td colspan="3">Grand Total</td>
+<td>540</td>
+</tr>
+</table>
+
+<a href="index.html">Back to Home</a>
+<a href="cancel.html" style="background:#555; margin-left:10px;">Cancel Order</a>
+
+</div>
+
+</body>
+</html>

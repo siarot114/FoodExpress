@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodExpress - Menu</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+html{scroll-behavior:smooth;}
+body{min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(135deg,#b31217,#e52d27);}
+main{flex:1;}
+header{background:#b31217;color:white;padding:20px;text-align:center;}
+header img{width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:15px;box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+header h1{text-shadow:2px 2px 8px rgba(0,0,0,0.6);}
+header p{text-shadow:2px 2px 6px rgba(0,0,0,0.6);}
+nav{background:#333;padding:10px;text-align:center;}
+nav a{color:white;text-decoration:none;margin:15px;font-weight:bold;padding:10px 15px;border-radius:5px;transition:0.3s;}
+nav a:hover{background:#ff1a1a;}
+.popular-section{background:#fff8f0;padding:30px 20px;border-radius:10px;margin:30px auto;max-width:1200px;box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+.category-title{text-align:center;color:#b31217;font-size:1.5rem;margin-bottom:10px;font-weight:bold;}
+.category-box{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-bottom:25px;}
+.category-card{background:#ff4d4d;color:white;width:120px;padding:10px;border-radius:10px;text-align:center;cursor:pointer;transition:0.3s;display:flex;flex-direction:column;align-items:center;border:none;}
+.category-card img{width:60px;height:60px;object-fit:cover;border-radius:50%;margin-bottom:8px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+.category-card div{font-weight:bold;}
+.category-card:hover{background:#e60000;transform:scale(1.05);}
+input[type="radio"]{display:none;}
+#all:checked + label[for="all"],
+#burger:checked + label[for="burger"],
+#pasta:checked + label[for="pasta"],
+#salad:checked + label[for="salad"],
+#sandwich:checked + label[for="sandwich"],
+#drinks:checked + label[for="drinks"],
+#fries:checked + label[for="fries"]{
+    border:3px solid #fff;
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+    transform:scale(1.1);
+}
+.popular-title{text-align:center;color:#b31217;font-size:1.4rem;margin-bottom:20px;font-weight:bold;}
+.food-items{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;}
+.food-card{background:white;width:250px;padding:20px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.15);text-align:center;transition:0.4s;display:none;flex-direction:column;justify-content:space-between;position:relative;}
+.food-card img{width:100%;height:160px;object-fit:cover;border-radius:12px;margin-bottom:12px;}
+.food-card h3{color:#b31217;font-size:1.2rem;margin-bottom:6px;font-weight:bold;}
+.food-card p{font-size:0.9rem;margin-bottom:8px;color:#555;line-height:1.3;}
+.food-card p:last-of-type{font-size:1.1rem;font-weight:bold;color:#e60000;}
+.food-card input[type="number"]{width:60px;padding:5px;margin:10px 0;text-align:center;border-radius:5px;border:1px solid #ddd;}
+.food-card button{padding:10px 15px;background:#ff4d4d;color:white;border:none;border-radius:5px;cursor:pointer;font-weight:bold;transition:0.3s;}
+.food-card button:hover{background:#e60000;}
+.rank-badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:#e60000;
+    color:white;
+    padding:5px 10px;
+    border-radius:12px;
+    font-weight:bold;
+    font-size:0.9rem;
+}
+#all:checked ~ .food-items .food-card,
+#burger:checked ~ .food-items .food-card[data-category="burger"],
+#pasta:checked ~ .food-items .food-card[data-category="pasta"],
+#salad:checked ~ .food-items .food-card[data-category="salad"],
+#sandwich:checked ~ .food-items .food-card[data-category="sandwich"],
+#drinks:checked ~ .food-items .food-card[data-category="drinks"],
+#fries:checked ~ .food-items .food-card[data-category="fries"]{
+    display:flex;
+}
+@media(max-width:768px){.food-items,.category-box{flex-direction:column;align-items:center;}}
+footer{background:#333;color:white;text-align:center;padding:15px;margin-top:30px;}
+</style>
+</head>
+<body>
+
+<header>
+<img src="logo.webp" class="logo" alt="FoodExpress Logo">
+<h1>FoodExpress</h1>
+<p>Delicious Food Delivered To Your Doorstep</p>
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+<a href="logout.html">Log Out</a>
+</nav>
+
+<main>
+<section class="popular-section">
+
+<div class="category-title">Categories</div>
+
+<!-- Radio buttons for filtering -->
+<input type="radio" name="category" id="all" checked>
+<input type="radio" name="category" id="burger">
+<input type="radio" name="category" id="pasta">
+<input type="radio" name="category" id="salad">
+<input type="radio" name="category" id="sandwich">
+<input type="radio" name="category" id="drinks">
+<input type="radio" name="category" id="fries">
+
+<div class="category-box">
+    <!-- Burger category -->
+    <form action="burger-categories.html" method="get" style="margin:0;">
+        <button class="category-card" type="submit">
+            <img src="burger.webp" alt="Burgers" loading="lazy">
+            <div>Burgers</div>
+        </button>
+    </form>
+
+    <!-- Pasta category -->
+    <form action="pasta-categories.html" method="get" style="margin:0;">
+        <button class="category-card" type="submit">
+            <img src="pasta.webp" alt="Pasta" loading="lazy">
+            <div>Pasta</div>
+        </button>
+    </form>
+
+    <!-- Salad category -->
+    <form action="salad-categories.html" method="get" style="margin:0;">
+        <button class="category-card" type="submit">
+            <img src="salad.webp" alt="Salad" loading="lazy">
+            <div>Salad</div>
+        </button>
+    </form>
+
+    <!-- Pizza category -->
+    <form action="pizza-categoires.html" method="get" style="margin:0;">
+        <button class="category-card" type="submit">
+            <img src="pizza.webp" alt="Pizza" loading="lazy">
+            <div>Pizza</div>
+        </button>
+    </form>
+
+    <!-- Drinks category -->
+    <form action="drinks-categories.html" method="get" style="margin:0;">
+        <button class="category-card" type="submit">
+            <img src="milkshake.webp" alt="Drinks" loading="lazy">
+            <div>Drinks</div>
+        </button>
+    </form>
+</div>
+
+<div class="popular-title">Popular Dishes</div>
+
+<div class="food-items">
+    <!-- Burger Cards -->
+    <div class="food-card" data-category="burger">
+        <span class="rank-badge">#1 Most Popular</span>
+        <img src="burger.webp" alt="Cheese Burger" loading="lazy">
+        <h3>Cheese Burger</h3>
+        <p>A juicy beef patty with cheddar, lettuce, and tomato.</p>
+        <p>₱120</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-card" data-category="burger">
+        <span class="rank-badge">#2 Most Popular</span>
+        <img src="bacon-burger.webp" alt="Bacon Burger" loading="lazy">
+        <h3>Bacon Burger</h3>
+        <p>Beef patty topped with crispy bacon, cheddar cheese, and lettuce.</p>
+        <p>₱150</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <!-- Pasta Cards -->
+    <div class="food-card" data-category="pasta">
+        <span class="rank-badge">#3 Most Popular</span>
+        <img src="pasta.webp" alt="Creamy Pasta" loading="lazy">
+        <h3>Creamy Alfredo</h3>
+        <p>Rich Alfredo pasta with a touch of garlic and cheese.</p>
+        <p>₱150</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-card" data-category="pasta">
+        <span class="rank-badge">#4 Most Popular</span>
+        <img src="seafood-pasta.webp" alt="Seafood Pasta" loading="lazy">
+        <h3>Seafood Pasta</h3>
+        <p>Pasta with shrimp, mussels, and a light tomato sauce.</p>
+        <p>₱180</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <!-- Salad Cards -->
+    <div class="food-card" data-category="salad">
+        <span class="rank-badge">#5 Most Popular</span>
+        <img src="caesar-salad.webp" alt="Caesar Salad" loading="lazy">
+        <h3>Caesar Salad</h3>
+        <p>Crispy romaine lettuce with parmesan, croutons, and Caesar dressing.</p>
+        <p>₱150</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-card" data-category="salad">
+        <span class="rank-badge">#6 Most Popular</span>
+        <img src="salad.webp" alt="Fresh Salad" loading="lazy">
+        <h3>Fresh Salad</h3>
+        <p>Mix of crisp lettuce, tomatoes, cucumbers, and light dressing.</p>
+        <p>₱120</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <!-- Drinks Cards -->
+    <div class="food-card" data-category="drinks">
+        <span class="rank-badge">#7 Most Popular</span>
+        <img src="chocolate-milkshake.webp" alt="Chocolate Milkshake" loading="lazy">
+        <h3>Chocolate Milkshake</h3>
+        <p>Rich chocolate flavor blended with creamy milk.</p>
+        <p>₱130</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-card" data-category="drinks">
+        <span class="rank-badge">#8 Most Popular</span>
+        <img src="milkshake.webp" alt="Strawberry Milkshake" loading="lazy">
+        <h3>Strawberry Milkshake</h3>
+        <p>Sweet and creamy milkshake topped with fresh strawberries.</p>
+        <p>₱120</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+</div>
+
+</section>
+</main>
+
+<footer>
+<p>&copy; 2026 FoodExpress | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

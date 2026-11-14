@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodExpress - Burgers</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+html{scroll-behavior:smooth;}
+body{min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(135deg,#b31217,#e52d27);}
+main{flex:1;}
+header{background:#b31217;color:white;padding:20px;text-align:center;}
+header img{width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:15px;box-shadow:0 8px 20px rgba(0,0,0,0.3);}
+header h1{text-shadow:2px 2px 8px rgba(0,0,0,0.6);}
+header p{text-shadow:2px 2px 6px rgba(0,0,0,0.6);}
+
+/* Burger Dishes Title */
+.category-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #b31217; /* match menu.html */
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.3); 
+    margin: 20px 0;
+    letter-spacing: 1px;
+}
+
+/* Food Items */
+.food-items{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;padding:20px;}
+.food-card{background:white;width:250px;padding:20px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.15);text-align:center;transition:0.4s;display:flex;flex-direction:column;justify-content:space-between;}
+.food-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 15px 30px rgba(0,0,0,0.25);}
+.food-card img{width:100%;height:160px;object-fit:cover;border-radius:12px;margin-bottom:12px;}
+.food-card h3{color:#b31217;font-size:1.2rem;margin-bottom:6px;font-weight:bold;}
+.food-card p{font-size:0.9rem;margin-bottom:8px;color:#555;line-height:1.3;}
+.food-card p:last-of-type{font-size:1.1rem;font-weight:bold;color:#e60000;}
+.food-card input[type="number"]{width:60px;padding:5px;margin:10px 0;text-align:center;border-radius:5px;border:1px solid #ddd;}
+.food-card button{padding:10px 15px;background:#ff4d4d;color:white;border:none;border-radius:5px;cursor:pointer;font-weight:bold;transition:0.3s;}
+.food-card button:hover{background:#e60000;}
+
+/* Back Button */
+.back-button{
+    display:block;
+    width:180px;
+    margin:30px auto 50px auto; 
+    padding:12px 20px;
+    background:#ff4d4d;
+    color:white;
+    text-align:center;
+    border:none;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:1.1rem;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+.back-button:hover{
+    background:#e60000;
+    transform:scale(1.05);
+}
+
+@media(max-width:768px){.food-items{flex-direction:column;align-items:center;}}
+footer{background:#333;color:white;text-align:center;padding:15px;margin-top:30px;}
+</style>
+</head>
+<body>
+
+<header>
+<img src="logo.webp" alt="FoodExpress Logo">
+<h1>FoodExpress</h1>
+<p>Delicious Burgers Delivered To Your Doorstep</p>
+</header>
+
+<main>
+<section style="background:#fff8f0; padding:30px 20px; border-radius:10px; margin:30px auto; max-width:1200px; box-shadow:0 8px 20px rgba(0,0,0,0.2);">
+<div class="category-title">Burger Dishes</div>
+
+<div class="food-items">
+    <div class="food-card">
+        <img src="burger.webp" alt="Cheese Burger" loading="lazy">
+        <h3>Cheese Burger</h3>
+        <p>Juicy beef patty with cheddar, lettuce, tomato, and special sauce.</p>
+        <p>₱120</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-card">
+        <img src="bacon-burger.webp" alt="Bacon Burger" loading="lazy">
+        <h3>Bacon Burger</h3>
+        <p>Beef patty topped with crispy bacon, cheddar cheese, and lettuce.</p>
+        <p>₱150</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-card">
+        <img src="vegie-burger.webp" alt="Veggie Burger" loading="lazy">
+        <h3>Veggie Burger</h3>
+        <p>Delicious plant-based patty with fresh vegetables and sauce.</p>
+        <p>₱130</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+
+    <div class="food-card">
+        <img src="chicken-burger.webp" alt="Chicken Burger" loading="lazy">
+        <h3>Chicken Burger</h3>
+        <p>Grilled chicken breast with lettuce, tomato, and mayo.</p>
+        <p>₱140</p>
+        <form action="checkout.html">
+            <label>Quantity:</label><br>
+            <input type="number" name="quantity" value="1" min="1"><br>
+            <button type="submit">Order Now</button>
+        </form>
+    </div>
+</div>
+
+<a href="menu.html" class="back-button">← Back to Menu</a>
+</section>
+</main>
+
+<footer>
+<p>&copy; 2026 FoodExpress | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
